@@ -1,59 +1,68 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_application_2/workout.dart';
+
 void main() {
-  int ValorVariavel = 10;
-  print(ValorVariavel);
-
-  bool ehVerdadeiro = true;
-  print(ehVerdadeiro);
-
-  String? nome;
-  nome = 'ABC';
-  print(nome);
-  nome = null;
-
-  late String sobrenome;
-  sobrenome = 'Silva';
-  print(sobrenome);
-
-  bool seguiEmFrente = true;
-
-  if (seguiEmFrente) {
-    print('Andar');
-  } 
-  else{
-    print('Parar');
-  }
-
-  if (10 > 5){
-    print("Dex é maior que cinco");
-  }
-
-  int ValorInt = 5;
-    switch(ValorInt){
-      case 0:
-        print("zero");
-        break;
-      case 1:
-        print('Um');
-        break;
-      case 2:
-        print('Dois');
-        break;
-      default:
-        print('Padrão');
-    }
-    
-    Celular celularteste = Celular('Azul', 5, 0.800, 5.7);
-    Celular celularprova = Celular('Preto', 10, 0.100, 5.7);
-
-    print(celularteste.cor);
+  runApp(const MyApp());
 }
 
-class Celular{
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  final String cor;
-  final int qtdPros;
-  final double tamanho;
-  final double peso;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'PUC Fit',
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+      ),
+      home: const MyHomePage(title: 'PUC Fit'),
+    );
+  }
+}
 
-  Celular(this.cor, this.qtdPros, this.peso, this.tamanho);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Stack(
+      children: <Widget>[
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/_musculacao.png"),
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
+        Positioned(
+          left: MediaQuery.of(context).size.width / 2 - 74,
+          bottom: MediaQuery.of(context).size.height / 2 - 227,
+          child: SizedBox(
+            width: 150.0,
+            height: 150.0,
+            child: TextButton(
+              child: const Text(''),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const WorkoutScreen()),
+                );
+              },
+            ),
+          ),
+        )
+      ],
+    ));
+  }
 }
