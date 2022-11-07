@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'musculacao1.dart';
+import 'musculacao2.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WorkoutsScreen extends StatelessWidget {
+  const WorkoutsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,24 +36,24 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/_modalidades.png"),
+              image: AssetImage("assets/_musculacao.png"),
               fit: BoxFit.fill,
             ),
           ),
         ),
         Positioned(
-          left: MediaQuery.of(context).size.width / 2 - 179,
-          top: MediaQuery.of(context).size.height / 2 - 225,
+          left: MediaQuery.of(context).size.width / 2 - 190,
+          top: MediaQuery.of(context).size.height / 2 - 98,
           child: SizedBox(
-            width: 120.0,
-            height: 120.0,
+            width: 390.0,
+            height: 50.0,
             child: TextButton(
-              child: const Text('musculacao'),
+              child: const Text(''),
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const WorkoutsScreen()),
+                      builder: (context) => const WorkoutScreen()),
                 );
               },
             ),
